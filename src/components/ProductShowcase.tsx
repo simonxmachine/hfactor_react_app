@@ -3,6 +3,7 @@
 import styles from "./ProductShowcase.module.css";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import GradientTitle from "./GradientTitle";
 
 const products = [
   {
@@ -74,7 +75,7 @@ export default function ProductShowcase() {
 
   return (
     <section className={styles.showcase}>
-      <h2 className={styles.title}>shop our products</h2>
+      <GradientTitle className={styles.title}>shop our products</GradientTitle>
       <div className={styles.productsContainer}>
         <div className={styles.navigation}>
           <button

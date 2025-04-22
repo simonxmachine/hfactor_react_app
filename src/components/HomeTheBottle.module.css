@@ -1,0 +1,63 @@
+.bottleSection {
+  padding: 5rem 2rem 8rem 2rem;
+  background: var(--background);
+  width: 100%;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.subtitle {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+.imageContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.bottleImage {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .bottleSection {
+    padding: 4rem 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}

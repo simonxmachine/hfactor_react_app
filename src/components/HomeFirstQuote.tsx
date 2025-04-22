@@ -17,21 +17,7 @@ export default function HomeFirstQuote() {
             className={styles.logo}
           />
           <img src="/store_brands/cvs.png" alt="CVS" className={styles.logo} />
-          <img
-            src="/store_brands/sprouts.png"
-            alt="Sprouts"
-            className={styles.logo}
-          />
-          <img
-            src="/store_brands/stop_shop.png"
-            alt="Stop & Shop"
-            className={styles.logo}
-          />
-          <img
-            src="/store_brands/winn_dixie.png"
-            alt="Winn Dixie"
-            className={styles.logo}
-          />
+
           <img
             src="/store_brands/bristol_farms.png"
             alt="Bristol Farms"
@@ -42,9 +28,26 @@ export default function HomeFirstQuote() {
             alt="Acme"
             className={styles.logo}
           />
+
           <img
             src="/store_brands/rouses.png"
             alt="Rouses"
+            className={styles.logo}
+          />
+          <img
+            src="/store_brands/sprouts.png"
+            alt="Sprouts"
+            className={styles.logo}
+          />
+          <img
+            src="/store_brands/stop_shop.png"
+            alt="Stop & Shop"
+            className={styles.logo}
+          />
+
+          <img
+            src="/store_brands/winn_dixie.png"
+            alt="Winn Dixie"
             className={styles.logo}
           />
         </div>
