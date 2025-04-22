@@ -143,6 +143,7 @@
   .menuGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    padding: 0rem 2rem;
   }
 
   .content {
@@ -156,8 +157,9 @@
 
 @media (max-width: 480px) {
   .features {
-    flex-direction: column;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
   .feature {
@@ -165,8 +167,10 @@
   }
 
   .menuGrid {
-    grid-template-columns: 1fr;
-    text-align: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    text-align: left;
+    padding: 0rem 2rem;
   }
 
   .description {

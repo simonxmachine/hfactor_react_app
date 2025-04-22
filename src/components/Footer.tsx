@@ -14,15 +14,12 @@ const menuItems = {
     { label: "Store Locator", href: "#" },
     { label: "Contact", href: "#" },
     { label: "News", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Manage Account", href: "#" },
+    { label: "FAQ", href: "#" },
   ],
   column3: [
-    { label: "FAQ", href: "#" },
     { label: "Terms & Conditions", href: "#" },
     { label: "Privacy Policy", href: "#" },
     { label: "Returns & Refunds", href: "#" },
-    { label: "Accessibility Statement", href: "#" },
   ],
 };
 
