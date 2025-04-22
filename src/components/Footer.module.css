@@ -3,15 +3,15 @@
   background: #0b2a44;
   color: white;
   padding: 0;
-  margin-top: 8rem;
+  margin-top: 4rem;
 }
 
 .wave {
   position: absolute;
-  top: -240px;
+  top: -110px;
   left: 0;
   width: 100%;
-  height: 250px;
+  height: 120px;
   overflow: hidden;
   line-height: 0;
 }
@@ -46,11 +46,29 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature:hover .featureIcon {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .featureIcon {
   color: white;
   margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.featureIcon:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
 }
 
 .featureLabel {
@@ -81,6 +99,16 @@
   gap: 1rem;
 }
 
+.featureIcon {
+  color: #a3a3a3;
+  margin-bottom: 1rem;
+}
+
+.featureLabel {
+  color: white;
+  font-weight: 500;
+}
+
 .menuItem {
   color: white;
   text-decoration: none;
@@ -103,15 +131,6 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .wave {
-    top: -120px;
-    height: 180px;
-  }
-
-  .wavePath {
-    d: path("M0,120 C360,80 720,140 1440,120 L1440,180 L0,180 Z");
-  }
-
   .features {
     flex-wrap: wrap;
     gap: 2rem;
@@ -136,15 +155,6 @@
 }
 
 @media (max-width: 480px) {
-  .wave {
-    top: -120px;
-    height: 120px;
-  }
-
-  .wavePath {
-    d: path("M0,80 C360,60 720,90 1440,80 L1440,120 L0,120 Z");
-  }
-
   .features {
     flex-direction: column;
     gap: 2rem;

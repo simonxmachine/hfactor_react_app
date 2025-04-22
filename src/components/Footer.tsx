@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./Footer.module.css";
+import { Drop, Recycle, Leaf, Flag } from "@phosphor-icons/react";
 
 const menuItems = {
   column1: [
@@ -27,72 +28,19 @@ const menuItems = {
 
 const features = [
   {
-    icon: (
-      <svg
-        width="40"
-        height="40"
-        viewBox="0 0 40 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="20" cy="20" r="19.5" stroke="currentColor" />
-        <path d="M14 12h12v16l-6-4-6 4V12z" stroke="currentColor" fill="none" />
-      </svg>
-    ),
+    icon: <Drop size={24} weight="light" />,
     label: "Hydrogen Infused",
   },
   {
-    icon: (
-      <svg
-        width="40"
-        height="40"
-        viewBox="0 0 40 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="20" cy="20" r="19.5" stroke="currentColor" />
-        <path d="M20 11v18M11 20h18" stroke="currentColor" />
-        <path
-          d="M28 20c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8 8 3.6 8 8z"
-          stroke="currentColor"
-          fill="none"
-        />
-      </svg>
-    ),
+    icon: <Recycle size={24} weight="light" />,
     label: "100% Recyclable",
   },
   {
-    icon: (
-      <svg
-        width="40"
-        height="40"
-        viewBox="0 0 40 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="20" cy="20" r="19.5" stroke="currentColor" />
-        <path
-          d="M20 28s7-3.5 7-8.5c0-3.9-3.1-7-7-7s-7 3.1-7 7c0 5 7 8.5 7 8.5z"
-          stroke="currentColor"
-          fill="none"
-        />
-      </svg>
-    ),
+    icon: <Leaf size={24} weight="light" />,
     label: "Eco-Friendly",
   },
   {
-    icon: (
-      <svg
-        width="40"
-        height="40"
-        viewBox="0 0 40 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="20" cy="20" r="19.5" stroke="currentColor" />
-        <path d="M12 20h16M12 15h16M12 25h16" stroke="currentColor" />
-      </svg>
-    ),
+    icon: <Flag size={24} weight="light" />,
     label: "Made in USA",
   },
 ];
@@ -104,17 +52,15 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.wave}>
         <svg
-          viewBox="0 0 1440 250"
+          viewBox="0 0 1440 120"
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
-          className={styles.waveSvg}
         >
           <path
-            className={styles.wavePath}
-            d="M0,160
-              C360,80 720,220 1440,160 
-              L1440,250
-              L0,250
+            d="M0,64 
+              C360,0 720,120 1440,64 
+              L1440,120 
+              L0,120 
               Z"
             fill="currentColor"
           />
