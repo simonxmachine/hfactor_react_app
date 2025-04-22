@@ -1,5 +1,4 @@
 import styles from "./HomeTheFlavors.module.css";
-import GradientTitle from "./GradientTitle";
 import Image from "next/image";
 
 const flavors = [
