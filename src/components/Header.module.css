@@ -21,4 +21,10 @@
 
 .logo {
   object-fit: contain;
+  transition: filter 0.3s ease;
+}
+
+/* Apply white filter in dark mode */
+[data-theme="dark"] .logo {
+  filter: brightness(0) invert(1);
 }

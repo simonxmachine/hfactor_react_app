@@ -2,7 +2,7 @@
 
 import styles from "./ProductShowcase.module.css";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const products = [
   {
@@ -39,7 +39,21 @@ const products = [
 
 export default function ProductShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const productsToShow = 4; // Number of products to show at once
+  const [productsToShow, setProductsToShow] = useState(4);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setProductsToShow(3);
+      } else {
+        setProductsToShow(5);
+      }
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -53,7 +67,6 @@ export default function ProductShowcase() {
     );
   };
 
-  // Calculate visible products
   const visibleProducts = [...products, ...products].slice(
     currentIndex,
     currentIndex + productsToShow
@@ -63,6 +76,22 @@ export default function ProductShowcase() {
     <section className={styles.showcase}>
       <h2 className={styles.title}>shop our products</h2>
       <div className={styles.productsContainer}>
+        <div className={styles.navigation}>
+          <button
+            className={styles.navButton}
+            onClick={prevSlide}
+            aria-label="Previous"
+          >
+            ←
+          </button>
+          <button
+            className={styles.navButton}
+            onClick={nextSlide}
+            aria-label="Next"
+          >
+            →
+          </button>
+        </div>
         <div
           className={styles.products}
           style={{
@@ -81,29 +110,13 @@ export default function ProductShowcase() {
                   src={product.image}
                   alt={product.name}
                   width={300}
-                  height={400}
+                  height={500}
                   className={styles.productImage}
                 />
               </div>
             </div>
           ))}
         </div>
-      </div>
-      <div className={styles.navigation}>
-        <button
-          className={styles.navButton}
-          onClick={prevSlide}
-          aria-label="Previous"
-        >
-          ←
-        </button>
-        <button
-          className={styles.navButton}
-          onClick={nextSlide}
-          aria-label="Next"
-        >
-          →
-        </button>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 .showcase {
-  padding: 4rem 2rem;
+  padding: 4rem 1rem;
   background-color: var(--background);
   position: relative;
 }
@@ -8,7 +8,6 @@
   text-align: center;
   font-size: 2.5rem;
   color: var(--foreground);
-  margin-bottom: 3rem;
   font-weight: 500;
 }
 
@@ -17,6 +16,7 @@
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  padding: 0 1rem;
 }
 
 .products {
@@ -25,6 +25,14 @@
   padding: 1rem;
   width: 100%;
   will-change: transform;
+  min-height: 400px;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .products {
+    padding: 0rem;
+  }
 }
 
 .product {
@@ -32,19 +40,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 1rem;
+  height: 100%;
 }
 
 .imageWrapper {
   width: 100%;
-  height: 400px;
+  height: 500px;
   position: relative;
-  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .productImage {
   object-fit: contain;
   transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
 }
 
 .product:hover .productImage {
@@ -72,18 +86,24 @@
 }
 
 .navigation {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
+  justify-content: space-between;
+  padding: 0 1rem;
+  pointer-events: none;
+  z-index: 10;
 }
 
 .navButton {
   background: none;
   border: 2px solid var(--foreground);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   font-size: 1.5rem;
   color: var(--foreground);
   cursor: pointer;
@@ -91,23 +111,67 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  pointer-events: auto;
+  background-color: var(--background);
 }
 
 .navButton:hover {
   background-color: var(--foreground);
   color: var(--background);
+  transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+  .productsContainer {
+    padding: 0 2.5rem;
+  }
 }
 
 @media (max-width: 768px) {
   .showcase {
-    padding: 2rem 1rem;
+    padding: 2rem 0.5rem;
   }
 
   .title {
     font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .productsContainer {
+    padding: 0 2rem;
+  }
+
+  .products {
+    gap: 1rem;
+    min-height: 400px;
   }
 
   .product {
     padding: 0.5rem;
+  }
+
+  .imageWrapper {
+    height: 400px;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .productsContainer {
+    padding: 0 1.5rem;
+  }
+
+  .products {
+    gap: 0.5rem;
+    min-height: 350px;
+  }
+
+  .imageWrapper {
+    height: 350px;
   }
 }
