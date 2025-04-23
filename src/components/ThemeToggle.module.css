@@ -1,0 +1,69 @@
+.defaultToggle {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.defaultToggle:hover {
+  background-color: var(--muted-foreground) / 10;
+}
+
+.switchToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--foreground);
+  font-size: 1.25rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.switchToggle:hover {
+  color: var(--primary);
+}
+
+.switchLabel {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.switch {
+  position: relative;
+  width: 56px;
+  height: 28px;
+  background-color: var(--muted);
+  border-radius: 14px;
+  padding: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.switchActive {
+  background-color: var(--primary);
+}
+
+.switchHandle {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.switchActive .switchHandle {
+  transform: translateX(28px);
+}
