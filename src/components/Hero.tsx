@@ -1,10 +1,13 @@
 import styles from "./Hero.module.css";
+import Link from "next/link";
 
 export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.content}>
-        <h1>shop now →</h1>
+        <Link href="/shop" className={styles.shopLink}>
+          <h1>shop now →</h1>
+        </Link>
       </div>
       <div className={styles.wave}>
         <svg
