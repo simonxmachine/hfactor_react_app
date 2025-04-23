@@ -9,17 +9,13 @@ const menuItems = {
     { label: "Customize", href: "#" },
     { label: "Partners", href: "#" },
     { label: "Our Story", href: "#" },
+    { label: "News", href: "#" },
   ],
   column2: [
+    { label: "FAQ/Contact", href: "#" },
     { label: "Store Locator", href: "#" },
-    { label: "Contact", href: "#" },
-    { label: "News", href: "#" },
-    { label: "FAQ", href: "#" },
-  ],
-  column3: [
     { label: "Terms & Conditions", href: "#" },
     { label: "Privacy Policy", href: "#" },
-    { label: "Returns & Refunds", href: "#" },
   ],
 };
 
@@ -75,7 +71,7 @@ export default function Footer() {
         </div>
 
         <p className={styles.description}>
-          H-Factor is infusing cutting-edge technology into hydration, promoting
+          H-Factor infuses cutting-edge technology with hydration, promoting
           health, sustainability, and environmental consciousness with every
           drop.
         </p>
@@ -95,17 +91,10 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <div className={styles.menuColumn}>
-            {menuItems.column3.map((item, index) => (
-              <a key={index} href={item.href} className={styles.menuItem}>
-                {item.label}
-              </a>
-            ))}
-          </div>
         </div>
 
         <div className={styles.copyright}>
-          © {currentYear} H-Factor. All rights reserved.
+          © {currentYear} H-Factor Water. All rights reserved.
         </div>
       </div>
     </footer>
