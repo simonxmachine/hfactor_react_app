@@ -7,9 +7,11 @@ import Link from "next/link";
 import { IoCartOutline } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme } = useTheme();
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -42,14 +44,16 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Image
-          src="/logo.png"
-          alt="HFactor Logo"
-          width={180}
-          height={38}
-          priority
-          className={styles.logo}
-        />
+        <Link href="/" className={styles.logoLink}>
+          <Image
+            src="/logo.png"
+            alt="HFactor Logo"
+            width={180}
+            height={38}
+            priority
+            className={styles.logo}
+          />
+        </Link>
 
         <div className={styles.rightSection}>
           <div className={styles.desktopActions}>
@@ -57,6 +61,9 @@ const Header = () => {
             <nav className={styles.nav}>
               <Link href="/shop" className={styles.navLink}>
                 Shop
+              </Link>
+              <Link href="/shop" className={styles.navLink}>
+                Power of Hydrogen
               </Link>
               <Link href="/sustainability" className={styles.navLink}>
                 Sustainability
@@ -72,10 +79,13 @@ const Header = () => {
           </div>
 
           <button
-            className={styles.burgerButton}
+            className={`${styles.burgerButton} ${
+              isMenuOpen ? styles.isOpen : ""
+            }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle Menu"
             aria-expanded={isMenuOpen}
+            data-theme={theme}
           >
             <div
               className={`${styles.burgerIcon} ${
@@ -106,6 +116,13 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Shop
+              </Link>
+              <Link
+                href="/hydrogen-science"
+                className={styles.mobileNavLink}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Power of Hydrogen
               </Link>
               <Link
                 href="/sustainability"

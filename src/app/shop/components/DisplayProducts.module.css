@@ -1,0 +1,315 @@
+.container {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  margin-top: 8rem;
+  margin-bottom: 10rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 4rem;
+  text-align: center;
+  color: var(--foreground);
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+}
+
+.productViewer {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  gap: 4rem;
+  padding: 0rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.mainProduct {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 2rem;
+}
+
+.productImage {
+  height: auto;
+  width: 100%;
+  max-width: 300px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.productInfo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  color: var(--foreground);
+  font-size: 1.2rem;
+  font-weight: 500;
+  width: 100%;
+  max-width: 600px;
+}
+
+.size {
+  color: var(--foreground);
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  opacity: 0.7;
+}
+
+.flavor {
+  color: var(--foreground);
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+.ph {
+  color: var(--foreground);
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.controls {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.tab:hover {
+  color: var(--main-blue);
+}
+
+.tab.active {
+  color: var(--main-blue);
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background-color: var(--main-blue);
+}
+
+.sliderContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.slider {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.sliderTrack {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.5s ease-in-out;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.navButton:hover {
+  opacity: 0.7;
+}
+
+.navButton svg {
+  width: 24px;
+  height: 24px;
+}
+
+.productOption {
+  background: none;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 calc(100% / 4);
+}
+
+.productOption:hover {
+  transform: translateY(-2px);
+}
+
+.productOption.selected {
+  transform: scale(1.05);
+}
+
+.productOption.selected::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: var(--main-blue);
+  border-radius: 50%;
+}
+
+.thumbnailImage {
+  height: auto;
+  width: 60px;
+  object-fit: contain;
+}
+
+.buyButton {
+  background: var(--main-blue);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+.buyButton:hover {
+  background: #006300;
+}
+
+.sizeSelector {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0rem 0 2rem 0;
+}
+
+.sizeOption {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--foreground);
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.sizeOption:hover {
+  transform: translateY(-2px);
+}
+
+.sizeOption.selected {
+  transform: scale(1.05);
+}
+
+.sizeOption.selected::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: var(--main-blue);
+  border-radius: 50%;
+}
+
+.sizeNumber {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.sizeUnit {
+  font-size: 0.875rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .productViewer {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .mainProduct {
+    order: -1;
+  }
+
+  .productImage {
+    max-width: 200px;
+  }
+
+  .controls {
+    width: 100%;
+  }
+
+  .productOption {
+    flex: 0 0 calc(100% / 3);
+  }
+}

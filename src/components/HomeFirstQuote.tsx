@@ -7,7 +7,7 @@ export default function HomeFirstQuote() {
         <blockquote className={styles.quote}>
           <span className={styles.quoteMarks}></span>An{" "}
           <span className={styles.award}>award-winning</span> hydrogen infused
-          water that offers anti-inflammatory and anti-oxidant benefits.
+          water
           <span className={styles.quoteMarks}></span>
         </blockquote>
         <div className={styles.logos}>
