@@ -2,7 +2,7 @@
 
 import styles from "./ProductShowcase.module.css";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import GradientTitle from "./GradientTitle";
 
 const products = [
@@ -41,6 +41,10 @@ const products = [
 export default function ProductShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [productsToShow, setProductsToShow] = useState(4);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Create an array with cloned products for smooth infinite scroll
+  const extendedProducts = [...products, ...products, ...products];
 
   useEffect(() => {
     const handleResize = () => {
@@ -56,22 +60,58 @@ export default function ProductShowcase() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex + productsToShow >= products.length ? 0 : prevIndex + 1
-    );
-  };
+  // Handle the smooth transition when reaching ends
+  useEffect(() => {
+    if (currentIndex >= products.length) {
+      const timer = setTimeout(() => {
+        setIsTransitioning(true);
+        setCurrentIndex(0);
+      }, 500); // Match this with your transition duration
+      return () => clearTimeout(timer);
+    }
+    if (currentIndex < 0) {
+      const timer = setTimeout(() => {
+        setIsTransitioning(true);
+        setCurrentIndex(products.length - 1);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex]);
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? products.length - productsToShow : prevIndex - 1
-    );
-  };
+  // Reset transition state after animation
+  useEffect(() => {
+    if (isTransitioning) {
+      const timer = setTimeout(() => {
+        setIsTransitioning(false);
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [isTransitioning]);
 
-  const visibleProducts = [...products, ...products].slice(
-    currentIndex,
-    currentIndex + productsToShow
-  );
+  const nextSlide = useCallback(() => {
+    setIsTransitioning(false);
+    setCurrentIndex((prev) => prev + 1);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setIsTransitioning(false);
+    setCurrentIndex((prev) => prev - 1);
+  }, []);
+
+  // // Auto-advance slides
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     nextSlide();
+  //   }, 5000); // Change slide every 5 seconds
+
+  //   return () => clearInterval(interval);
+  // }, [nextSlide]);
+
+  // Calculate transform with smooth transition handling
+  const getTransform = () => {
+    const baseTransform = -(currentIndex * (100 / productsToShow));
+    return `translateX(${baseTransform}%)`;
+  };
 
   return (
     <section className={styles.showcase}>
@@ -83,24 +123,46 @@ export default function ProductShowcase() {
             onClick={prevSlide}
             aria-label="Previous"
           >
-            ←
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m15 18-6-6 6-6" />
+            </svg>
           </button>
           <button
             className={styles.navButton}
             onClick={nextSlide}
             aria-label="Next"
           >
-            →
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m9 18 6-6-6-6" />
+            </svg>
           </button>
         </div>
         <div
           className={styles.products}
           style={{
-            transform: `translateX(-${currentIndex * (100 / productsToShow)}%)`,
-            transition: "transform 0.5s ease-in-out",
+            transform: getTransform(),
+            transition: isTransitioning ? "none" : "transform 0.5s ease-in-out",
           }}
         >
-          {visibleProducts.map((product, index) => (
+          {extendedProducts.map((product, index) => (
             <div
               key={`${product.id}-${index}`}
               className={styles.product}
@@ -113,6 +175,7 @@ export default function ProductShowcase() {
                   width={300}
                   height={500}
                   className={styles.productImage}
+                  priority={index < productsToShow}
                 />
               </div>
             </div>

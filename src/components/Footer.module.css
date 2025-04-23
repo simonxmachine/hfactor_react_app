@@ -165,13 +165,13 @@
   .feature {
     flex: 1;
   }
-
+  /* 
   .menuGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     text-align: left;
     padding: 0rem 2rem;
-  }
+  } */
 
   .description {
     font-size: 1rem;
