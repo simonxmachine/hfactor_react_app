@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import ProductShowcase from "@/components/ProductShowcase";
 import HomeFirstQuote from "@/components/HomeFirstQuote";
 import HomeTheBottle from "@/components/HomeTheBottle";
-import HomeTheFlavors from "@/components/HomeTheFlavors";
 import Footer from "@/components/Footer";
 
 export default function Home() {
