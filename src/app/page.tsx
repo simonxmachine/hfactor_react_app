@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import ProductShowcase from "@/components/ProductShowcase";
 import HomeFirstQuote from "@/components/HomeFirstQuote";
 import HomeTheBottle from "@/components/HomeTheBottle";
-
+import HomeTheFlavors from "@/components/HomeTheFlavors";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       <ProductShowcase />
       <HomeFirstQuote />
       <HomeTheBottle />
-
+      {/* <HomeTheFlavors /> */}
       <Footer />
       <main className="flex-1 flex flex-col items-center justify-center p-8">
         {/* Your main content will go here */}
